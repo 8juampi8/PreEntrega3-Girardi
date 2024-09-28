@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#productos{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.fila-productos{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.tarjeta-producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
