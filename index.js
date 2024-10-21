@@ -133,7 +133,7 @@ function verProductos(filtrarProductos) {
                 ${producto.precio}
             </p>
 
-            <button onclick="añadirProducto(${producto.id})">
+            <button onclick="sumarProducto()">
                 AGREGAR
             </button>
         `;
@@ -168,3 +168,17 @@ document.getElementById("latas").addEventListener("click", ()=>filtrar("Lata"));
 document.getElementById("veinteLitros").addEventListener("click", ()=>filtrar("Chopera 20LT"));
 
 document.getElementById("cincuentaLitros").addEventListener("click", ()=>filtrar("Chopera 50LT"));
+
+
+
+
+
+// CARRITO
+const AGREGAR_PRODUCTO = document.getElementById("agregarProducto");
+let totalDeProductos;
+
+function sumarProducto() {
+    totalDeProductos = parseInt(document.getElementById("cantidad").innerHTML) + 1;
+    document.getElementById("cantidad").innerHTML = totalDeProductos;
+    return;
+}
