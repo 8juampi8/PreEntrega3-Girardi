@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>PreEntrega1+Girardi</title>
+    <title>PreEntrega3+Girardi</title>
 </head>
 <body>
 
     <header>
         <div class="filtado">
-            <button id="todos">
-                TODOS
-            </button>
-
-            <button id="latas">
-                LATAS
-            </button>
-
-            <button id="veinteLitros">
-                CHOPERAS 20LT
-            </button>
-            
-            <button id="cincuentaLitros">
-                CHOPERAS 50LT
-            </button>
+            <ul>
+                <li>
+                    <button id="todos">
+                        TODOS
+                    </button>
+                </li>
+                <li>
+                    <button id="latas">
+                        LATAS
+                    </button>
+                </li>
+                <li>
+                    <button id="veinteLitros">
+                        CHOPERAS 20LT
+                    </button>
+                </li>
+                <li>
+                    <button id="cincuentaLitros">
+                        CHOPERAS 50LT
+                    </button>
+                </li>
+            </ul>
         </div>
     </header>
 
@@ -32,21 +42,11 @@
         <section id="contenedorProductos">
 
         </section>
-
-        <section id="contenedorCarrito">
+        <nav id="contenedorCarrito">
             <h2>
-                CANTIDAD DE PRODUCTOS SELECCIONADOS
+                CARRITO DE PRODUCTOS
             </h2>
-            <p id="cantidad">
-                0
-            </p>
-            <button id="resetearCantidad">
-                RESTABLECER
-            </button>
-            <button>
-                COMPRAR
-            </button>
-        </section>
+        </nav>
     </main>
 
     <script src="./index.js"></script>

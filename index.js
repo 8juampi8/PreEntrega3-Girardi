@@ -130,7 +130,7 @@ function verProductos(filtrarProductos) {
             </h4>
 
             <p>
-                ${producto.precio}
+                $${producto.precio}
             </p>
 
             <button onclick="sumarProducto()">
@@ -173,12 +173,4 @@ document.getElementById("cincuentaLitros").addEventListener("click", ()=>filtrar
 
 
 
-// CARRITO
-const AGREGAR_PRODUCTO = document.getElementById("agregarProducto");
-let totalDeProductos;
 
-function sumarProducto() {
-    totalDeProductos = parseInt(document.getElementById("cantidad").innerHTML) + 1;
-    document.getElementById("cantidad").innerHTML = totalDeProductos;
-    return;
-}

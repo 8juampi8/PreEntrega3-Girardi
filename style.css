@@ -1,19 +1,88 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Fira Sans", sans-serif;
+    color: rgb(236, 126, 36);
+}
+
+header{
+    background-color: rgb(235, 205, 180);
+}
+header ul{
+    display: flex;
+    list-style: none;
+}
+header button{
+    border: 0;
+    background-color: rgb(233, 196, 165);
+    padding: 20px;
+    transition: all ease 0.7s;
+    height: 66px;
+    font-size: 15px;
+    border-right: 1px solid rgb(238, 182, 137);
+}
+header button:hover{
+    background-color: rgb(240, 173, 118);
+    transition: all ease 0.7s;
 }
 
 main{
+    display: grid;
+    grid-template-areas: 
+    "section section nav";
+    height: 100vh;
+}
+
+#contenedorProductos{
+    grid-area: section;
+    display: grid;
+    grid-template-columns: repeat(5,200px);
+    gap: 80px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedorCarrito{
+    grid-area: nav;
+    background-color: rgb(235, 205, 180);
+    text-align: center;
+}
+#contenedorCarrito h2{
+    background-color: rgb(236, 126, 36);
+    color: rgb(233, 196, 165);
+}
+
+.tarjeta-producto{
+    background-color: rgb(235, 205, 180);
+    padding: 20px;
+    border-radius: 20px;
+}
+.tarjeta-producto img,p{
+    margin: 20px 0;
+}
+.tarjeta-producto button{
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+.tarjeta-producto button:hover{
+    background-color: rgb(236, 126, 36);
+    color: rgb(233, 196, 165);
+}
+/* main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: rgb(187, 99, 41);
+    padding: 70px;
 }
 
 #contenedorProductos{
     display: grid;
     grid-template-columns: repeat(4, 400px);
+    gap: 50px;
     height: 80%;
 }
 
@@ -23,10 +92,16 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(236, 126, 36);
+    width: 60%;
+    border-radius: 20px;
+}
+.tarjeta-producto img,h2,h4,p,button{
+    margin: 5px 0;
 }
 
 #contenedorCarrito{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
