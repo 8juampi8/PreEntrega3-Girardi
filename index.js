@@ -116,7 +116,7 @@ function verProductos(filtrarProductos) {
     
     CONTENEDOR_DE_PRODUCTOS.innerHTML = ``;
 
-    filtrarProductos.forEach(producto => {
+    PRODUCTOS.forEach(producto => {
         const CAJA_PRODUCTO = document.createElement("div");
         CAJA_PRODUCTO.className = "tarjeta-producto";
         CAJA_PRODUCTO.innerHTML = `
@@ -133,7 +133,7 @@ function verProductos(filtrarProductos) {
                 $${producto.precio}
             </p>
 
-            <button onclick="sumarProducto()">
+            <button onclick="agregarAlCarrito(${producto.id})">
                 AGREGAR
             </button>
         `;
@@ -141,36 +141,80 @@ function verProductos(filtrarProductos) {
         CONTENEDOR_DE_PRODUCTOS.appendChild(CAJA_PRODUCTO);
     })
 };
+verProductos();
+
 
 
 
 
 // FILTRADO DE PRODUCTOS
-function filtrar(tipo) {
-    let filtrarProductos;
-    if (tipo) {
-        filtrarProductos = PRODUCTOS.filter(producto => producto.tipo === tipo);
-    } else {
-            filtrarProductos = PRODUCTOS;
-    }
+// function filtrar(tipo) {
+//     let filtrarProductos;
+//     if (tipo) {
+//         filtrarProductos = PRODUCTOS.filter(producto => producto.tipo === tipo);
+//     } else {
+//             filtrarProductos = PRODUCTOS;
+//     }
 
-    verProductos(filtrarProductos)
-};
+//     verProductos(filtrarProductos)
+// };
 
-verProductos(PRODUCTOS)
+// verProductos(PRODUCTOS)
 
 
 // BOTONES DE FILTRADO
-document.getElementById("todos").addEventListener("click", ()=>filtrar(""));
+// document.getElementById("todos").addEventListener("click", ()=>filtrar(""));
 
-document.getElementById("latas").addEventListener("click", ()=>filtrar("Lata"));
+// document.getElementById("latas").addEventListener("click", ()=>filtrar("Lata"));
 
-document.getElementById("veinteLitros").addEventListener("click", ()=>filtrar("Chopera 20LT"));
+// document.getElementById("veinteLitros").addEventListener("click", ()=>filtrar("Chopera 20LT"));
 
-document.getElementById("cincuentaLitros").addEventListener("click", ()=>filtrar("Chopera 50LT"));
-
-
+// document.getElementById("cincuentaLitros").addEventListener("click", ()=>filtrar("Chopera 50LT"));
 
 
 
 
+
+// CARRITO DE PRODUCTOS
+function agregarAlCarrito(id){
+    const CARRITO = JSON.parse(localStorage.getItem("carrito")) || [];
+    const PRODUCTO = PRODUCTOS.find(prod => prod.id === id);
+    const PRODUCTO_EN_CARRITO = CARRITO.find(prod => prod.id === id);
+
+    if(PRODUCTO_EN_CARRITO){
+        PRODUCTO_EN_CARRITO.cantidad += 1;
+    }
+    else{
+        CARRITO.push({...PRODUCTO, cantidad: 1})
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(CARRITO));
+    verProductos();
+}
+
+function verCarrito(){
+    const CARRITO = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const LISTA_CARRITO = document.getElementById("carrito");
+    LISTA_CARRITO.innerHTML = ``;
+    let total = 0;
+
+    CARRITO.forEach((producto, index) => {
+        let li = document.createElement("li");
+        li.textContent = `${producto.nombre} - ${producto.precio}`;
+        li.innerHTML += `
+            <button onclick="eliminarDelCarrito(${index})">
+                ELIMINAR
+            </button>
+        `
+
+        LISTA_CARRITO.appendChild(li);
+        total += producto.precio * producto.cantidad;
+    })
+    document.getElementById("total").textContent = `Total: $${total}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    verProductos();
+    verCarrito();
+})
