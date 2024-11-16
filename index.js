@@ -2,41 +2,41 @@ const PRODUCTOS = [
 
     // LATAS
   
-    { id: 1, tipo: "Lata", nombre: "Summer Ale", precio: 2000, medida: "500ml" },
+    { id: 1, tipo: "Lata", nombre: "Summer Ale", precio: 2000, medida: "500ml", img:"./img/latas.png" },
   
-    { id: 2, tipo: "Lata", nombre: "Florida Honey", precio: 2000, medida: "500ml" },
+    { id: 2, tipo: "Lata", nombre: "Florida Honey", precio: 2000, medida: "500ml", img:"./img/latas.png" },
   
-    { id: 3, tipo: "Lata", nombre: "English Porter", precio: 2000, medida: "500ml" },
+    { id: 3, tipo: "Lata", nombre: "English Porter", precio: 2000, medida: "500ml", img:"./img/latas.png" },
   
-    { id: 4, tipo: "Lata", nombre: "Session Ipa", precio: 2000, medida: "500ml" },
+    { id: 4, tipo: "Lata", nombre: "Session Ipa", precio: 2000, medida: "500ml", img:"./img/latas.png" },
   
-    { id: 5, tipo: "Lata", nombre: "American Ipa", precio: 2000, medida: "500ml" },
+    { id: 5, tipo: "Lata", nombre: "American Ipa", precio: 2000, medida: "500ml", img:"./img/latas.png" },
   
     // CHOPERAS 20L
   
-    { id: 6, tipo: "Chopera 20LT", nombre: "Summer Ale", precio: 10000, medida: "20lt" },
+    { id: 6, tipo: "Chopera 20LT", nombre: "Summer Ale", precio: 10000, medida: "20lt", img: "./img/chopera.png" },
   
-    { id: 7, tipo: "Chopera 20LT", nombre: "Rubia", precio: 10000, medida: "20lt" },
+    { id: 7, tipo: "Chopera 20LT", nombre: "Rubia", precio: 10000, medida: "20lt", img: "./img/chopera.png" },
   
-    { id: 8, tipo: "Chopera 20LT", nombre: "American Ipa", precio: 10000, medida: "20lt" },
+    { id: 8, tipo: "Chopera 20LT", nombre: "American Ipa", precio: 10000, medida: "20lt", img: "./img/chopera.png" },
   
-    { id: 9, tipo: "Chopera 20LT", nombre: "Session Ipa", precio: 10000, medida: "20lt" },
+    { id: 9, tipo: "Chopera 20LT", nombre: "Session Ipa", precio: 10000, medida: "20lt", img: "./img/chopera.png" },
 
     // CHOPERAS 50L
   
-    { id: 10, tipo: "Chopera 50LT", nombre: "Summer Ale", precio: 22500, medida: "50lt" },
+    { id: 10, tipo: "Chopera 50LT", nombre: "Summer Ale", precio: 22500, medida: "50lt", img: "./img/chopera.png" },
   
-    { id: 11, tipo: "Chopera 50LT", nombre: "Rubia", precio: 22500, medida: "50lt" },
+    { id: 11, tipo: "Chopera 50LT", nombre: "Rubia", precio: 22500, medida: "50lt", img: "./img/chopera.png" },
   
-    { id: 12, tipo: "Chopera 50LT", nombre: "American Ipa", precio: 22500, medida: "50lt" },
+    { id: 12, tipo: "Chopera 50LT", nombre: "American Ipa", precio: 22500, medida: "50lt", img: "./img/chopera.png" },
   
-    { id: 13, tipo: "Chopera 50LT", nombre: "Session Ipa", precio: 22500, medida: "50lt" },
+    { id: 13, tipo: "Chopera 50LT", nombre: "Session Ipa", precio: 22500, medida: "50lt", img: "./img/chopera.png" },
   
   ];
   
   // MUESTRO PRODUCTOS EN HTML
   
-  function verProductos(filtrarProductos = PRODUCTOS) {
+function verProductos(filtrarProductos = PRODUCTOS) {
   
     const CONTENEDOR_DE_PRODUCTOS = document.getElementById("contenedorProductos");
   
@@ -49,8 +49,7 @@ const PRODUCTOS = [
       CAJA_PRODUCTO.className = "tarjeta-producto";
   
       CAJA_PRODUCTO.innerHTML = `
-  
-        <img src="" alt="producto">
+        <img src="${producto.img}" alt="producto">
   
         <h2>${producto.nombre}</h2>
   
@@ -70,7 +69,7 @@ const PRODUCTOS = [
   
   // FILTRADO DE PRODUCTOS
   
-  function filtrar(tipo) {
+function filtrar(tipo) {
   
     let filtrarProductos;
   
@@ -100,7 +99,7 @@ const PRODUCTOS = [
   
   // CARRITO DE PRODUCTOS
   
-  function agregarAlCarrito(id) {
+function agregarAlCarrito(id) {
   
     const CARRITO = JSON.parse(localStorage.getItem("carrito")) || [];
   
@@ -124,7 +123,7 @@ const PRODUCTOS = [
   
   }
   
-  function verCarrito() {
+function verCarrito() {
   
     const CARRITO = JSON.parse(localStorage.getItem("carrito")) || [];
   
@@ -138,7 +137,7 @@ const PRODUCTOS = [
   
       let li = document.createElement("li");
   
-      li.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
+      li.textContent = `${producto.tipo} ${producto.nombre} - $${producto.precio} x ${producto.cantidad}`;
   
       li.innerHTML += `
   
@@ -156,7 +155,7 @@ const PRODUCTOS = [
   
   }
   
-  function eliminarDelCarrito(index) {
+function eliminarDelCarrito(index) {
   
     const CARRITO = JSON.parse(localStorage.getItem("carrito")) || [];
   
@@ -176,3 +175,15 @@ const PRODUCTOS = [
     verCarrito();
   
   });
+
+let botonComprar = document.getElementById("comprar");
+
+botonComprar.addEventListener("click", ()=>{
+      Swal.fire({
+          title: "¡Gracias por su compra!",
+          text: "Compra realizada con éxito",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          confirmButtonColor: "orange",
+      })
+  })

@@ -47,18 +47,34 @@ main{
     grid-area: nav;
     background-color: rgb(235, 205, 180);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    position: relative;
+    left: 30px;
 }
 #contenedorCarrito h2{
     background-color: rgb(236, 126, 36);
     color: rgb(233, 196, 165);
+    width: 100%;
 }
 
 .tarjeta-producto{
     background-color: rgb(235, 205, 180);
-    padding: 20px;
+    display: flex;
     border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 380px;
 }
-.tarjeta-producto img,p{
+.tarjeta-producto img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 20px;
+}
+.tarjeta-producto p{
     margin: 20px 0;
 }
 .tarjeta-producto button{
@@ -90,4 +106,25 @@ main{
 #carrito button:hover{
     background-color: rgb(236, 126, 36);
     color: rgb(233, 196, 165);
+}
+
+#contenedorCarrito hr{
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(236, 126, 36);
+}
+#total{
+    font-size: 20px;
+}
+#comprar{
+    margin-top: 10px;
+    border: none;
+    background-color: rgb(236, 126, 36);
+    color: rgb(233, 196, 165);
+    padding: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 20px;
 }
